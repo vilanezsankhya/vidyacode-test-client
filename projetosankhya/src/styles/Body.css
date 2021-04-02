@@ -1,0 +1,41 @@
+.bodyContainer {
+  align-items: center;
+  background: #212F44;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0.7rem 0;
+}
+
+.cardContainer {
+  border: 1px solid #70C067;
+  color: #70C067;
+  padding: 1rem;
+}
+
+.instructionsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonsBodyContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonsBodyContainer button {
+  background: #70C067;
+  border: none;
+  border-radius: 0.5rem;
+  color: #212F44;
+  margin-top: 0.5rem;
+  outline: none;
+}
+
+.buttonsBodyContainer button:hover {
+  background: #212F44;
+  border: 1px solid #70C067;
+  color: #70C067;
+}
