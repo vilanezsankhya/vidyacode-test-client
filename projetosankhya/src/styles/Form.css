@@ -1,0 +1,38 @@
+body {
+  background-color: #70C067;
+}
+
+h3 {
+  text-align: center;
+}
+
+.formContainer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.formContainer label {
+  padding-right: 1rem;
+}
+
+.formContainer input {
+  margin-left: 0.5rem;
+}
+
+.formContainer > button {
+  background: #212F44;
+  border: none;
+  border-radius: 0.5rem;
+  color: #70C067;
+  margin-right: 0.5rem;
+  outline: none;
+}
+
+.formContainer > button:hover {
+  background: #70C067;
+  border: 1px solid #212F44;
+  color: #212F44;
+}
+
+
