@@ -21,22 +21,23 @@ const DataProvider = ({ children }) => {
   const [edit, setEdit] = useState(false)
   const [id, setId] = useState('')
 
-const handleClick = async () => {
-  const axiosDataPost = async () => {
-    await axios.post(endpoint, newClient)
-  };
-  const axiosDataPut = async () => {
-    await axios.put(`${endpoint}/${id}`, newClient).then(setEdit(false))
-  }
-  return edit ? axiosDataPut() : axiosDataPost();
-}
-
-const handleList = async () => {
   const axiosData = async () => {
     const response = await axios.get(endpoint).then((res) => res.data)
     setClient(response.clients)
     setBody(true)
   };
+
+const handleClick = async () => {
+  const axiosDataPost = async () => {
+    await axios.post(endpoint, newClient)
+  };
+  const axiosDataPut = async () => {
+    await axios.put(`${endpoint}/${id}`, newClient).then(() => {setEdit(false); axiosData()})
+  }
+  return edit ? axiosDataPut() : axiosDataPost();
+}
+
+const handleList = async () => {
   axiosData();
 }
 
@@ -66,6 +67,13 @@ const handleEdit = ({id, name, phone, document, address}) => {
   console.log(newClient)
 }
 
+const handleDelete = async (objClient) => {
+  const axiosDataPut = async () => {
+    await axios.delete(`${endpoint}/${objClient.id}`).then(() => axiosData())
+}
+return axiosDataPut();
+}
+
 useEffect(() => {
   document.getElementById('name').value = newClient.name;
   document.getElementById('phone').value = newClient.phone;
@@ -86,6 +94,7 @@ const store = {
   id,
   edit,
   setEdit,
+  handleDelete,
 }
 
   return(

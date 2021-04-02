@@ -5,14 +5,14 @@
   flex-grow: 1;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 1rem;
+  margin-top: 1rem;
+  padding: 0.7rem 0;
 }
 
 .cardContainer {
   border: 1px solid #70C067;
   color: #70C067;
   padding: 1rem;
-  max-width: 25%;
 }
 
 .instructionsContainer {
@@ -20,15 +20,21 @@
   flex-direction: column;
 }
 
-.cardContainer > button {
+.buttonsBodyContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonsBodyContainer button {
   background: #70C067;
   border: none;
   border-radius: 0.5rem;
   color: #212F44;
+  margin-top: 0.5rem;
   outline: none;
 }
 
-button:hover {
+.buttonsBodyContainer button:hover {
   background: #212F44;
   border: 1px solid #70C067;
   color: #70C067;

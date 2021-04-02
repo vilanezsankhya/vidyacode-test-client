@@ -6,7 +6,8 @@ export default function Body () {
   const {
     client,
     body,
-    handleEdit
+    handleEdit,
+    handleDelete,
   } = useContext(DateContext);  
 
   if(body)
@@ -20,7 +21,10 @@ export default function Body () {
             <h5>Fone:{objClient.phone}</h5>
             <h5>CPF:{objClient.document}</h5>
             <h5>Endereço:{objClient.address}</h5>
-            <button type="button" name={objClient.id} onClick={() => handleEdit(objClient)}>Editar Cliente</button>
+            <div className="buttonsBodyContainer">
+              <button type="button" name={objClient.id} onClick={() => handleEdit(objClient)}>Editar Cliente</button>
+              <button type="button" name={objClient.id} onClick={() => handleDelete(objClient)}>Limpar Cliente</button>
+            </div>
           </div>
         )
       })}
