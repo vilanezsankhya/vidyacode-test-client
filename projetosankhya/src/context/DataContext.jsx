@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 export const DateContext = createContext();
@@ -18,13 +18,17 @@ const DataProvider = ({ children }) => {
       address:'',
   })
   const [body, setBody] = useState(false)
+  const [edit, setEdit] = useState(false)
   const [id, setId] = useState('')
 
 const handleClick = async () => {
   const axiosDataPost = async () => {
     await axios.post(endpoint, newClient)
   };
-  axiosDataPost();
+  const axiosDataPut = async () => {
+    await axios.put(`${endpoint}/${id}`, newClient).then(setEdit(false))
+  }
+  return edit ? axiosDataPut() : axiosDataPost();
 }
 
 const handleList = async () => {
@@ -48,16 +52,26 @@ const handleChange = ({target}) => {
     setNewClient({...newClient, phone: target.value})
     break;
     case "address":
-    setNewClient({...newClient, address: target.value})
+      setNewClient({...newClient, address: target.value})
     break;
   default:
     alert('Verifique seus dados')
   }
 }
 
-const handleEdit = ({target}) => {
-  setId(target.name)
+const handleEdit = ({id, name, phone, document, address}) => {
+  setId(id)
+  setNewClient({name, phone, document, address})
+  setEdit(true);
+  console.log(newClient)
 }
+
+useEffect(() => {
+  document.getElementById('name').value = newClient.name;
+  document.getElementById('phone').value = newClient.phone;
+  document.getElementById('document').value = newClient.document;
+  document.getElementById('address').value = newClient.address;
+}, [newClient])
 
 const store = {
   client,
@@ -69,7 +83,9 @@ const store = {
   setBody,
   handleEdit,
   setId,
-  id
+  id,
+  edit,
+  setEdit,
 }
 
   return(

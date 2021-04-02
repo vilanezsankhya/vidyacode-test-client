@@ -7,15 +7,16 @@ export default function Form () {
     handleClick,
     handleChange,
     handleList,
+    edit,
   } = useContext(DateContext);
 
   return(
       <>
         <h3>Cadastro de Clientes</h3>
         <div className="formContainer">
-          <label htmlFor="Nome"> Nome:
+          <label htmlFor="name"> Nome:
             <input 
-              id="Nome"
+              id="name"
               type="text"
               maxLength="100"
               name="name"
@@ -23,9 +24,9 @@ export default function Form () {
               required
             />
           </label>
-          <label htmlFor="CPF"> CPF:
+          <label htmlFor="document"> CPF:
             <input 
-              id="CPF"
+              id="document"
               type="text"
               minLength="11"
               maxLength="11"
@@ -35,9 +36,9 @@ export default function Form () {
               required
             />
           </label>
-          <label htmlFor="Telefone"> Telefone:
+          <label htmlFor="phone"> Telefone:
             <input 
-              id="Telefone"
+              id="phone"
               type="text"
               minLength="11"
               maxLength="11"
@@ -47,17 +48,21 @@ export default function Form () {
               required
           />
           </label>
-          <label htmlFor="Endereço"> Endereço:
+          <label htmlFor="address"> Endereço:
             <input 
-              id="Endereço"
+              id="address"
               type="text"
               maxLength="200"
               name="address"
               onChange={ handleChange }
             />
           </label>
-          <button type="button" onClick={ handleClick }>Cadastrar Cliente</button>
-          <button type="button" onClick={ handleList }>Listar Clientes</button>
+          {edit ? 
+            <button title="Atualizar Clientes" type="button" onClick={ handleClick }>Atualizar Cliente</button>
+            :
+            <button title="Cadastrar Clientes" type="button" onClick={ handleClick }>Cadastrar Cliente</button>
+          }
+          <button title="Listar Clientes" type="button" onClick={ handleList }>Listar Clientes</button>
       </div>
     </>
   )
