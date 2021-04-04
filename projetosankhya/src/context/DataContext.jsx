@@ -70,7 +70,7 @@ const handleEdit = ({id, name, phone, document, address}) => {
 
 const handleDelete = async (objClient) => {
   const axiosDataPut = async () => {
-    alert("Deseja excluir o registro?")
+    if (!window.confirm("Deseja excluir o registro?")) return;
     await axios.delete(`${endpoint}/${objClient.id}`).then(() => axiosData())
 }
 return axiosDataPut();
