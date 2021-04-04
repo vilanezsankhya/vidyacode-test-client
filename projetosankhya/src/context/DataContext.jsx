@@ -23,13 +23,14 @@ const DataProvider = ({ children }) => {
 
   const axiosData = async () => {
     const response = await axios.get(endpoint).then((res) => res.data)
-    setClient(response.clients)
+    
+    setClient(response.clients) 
     setBody(true)
   };
 
 const handleClick = async () => {
   const axiosDataPost = async () => {
-    await axios.post(endpoint, newClient)
+    await axios.post(endpoint, newClient).catch(error => alert(error.message))
   };
   const axiosDataPut = async () => {
     await axios.put(`${endpoint}/${id}`, newClient).then(() => {setEdit(false); axiosData()})
@@ -69,6 +70,7 @@ const handleEdit = ({id, name, phone, document, address}) => {
 
 const handleDelete = async (objClient) => {
   const axiosDataPut = async () => {
+    if (!window.confirm("Deseja excluir o registro?")) return;
     await axios.delete(`${endpoint}/${objClient.id}`).then(() => axiosData())
 }
 return axiosDataPut();

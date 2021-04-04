@@ -10,8 +10,8 @@ h3 {
 .formContainer {
   align-items: center;
   display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 2%;
 }
 
 .formContainer label {
@@ -20,17 +20,22 @@ h3 {
 
 .formContainer input {
   background-color: #212F44;
+  border-radius: 0.5rem;
   color: #70C067;
   margin-left: 0.5rem;
+  outline: none;
+  padding: 0.2rem;
 }
 
 .formContainer > button {
   background: #212F44;
-  border: none;
+  border: 1px solid #70C067;
   border-radius: 0.5rem;
   color: #70C067;
+  cursor: pointer;
   margin-right: 0.5rem;
   outline: none;
+  padding: 0.5rem;
 }
 
 .formContainer > button:hover {
@@ -39,4 +44,34 @@ h3 {
   color: #212F44;
 }
 
+@media screen and (max-width: 986px) {
+  .formContainer {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 5%;
+  }
 
+  .formContainer input {
+    margin-bottom: 2rem;
+    margin-left: 1.2rem;
+  }
+
+  .formLabelText {
+    justify-content: space-between;
+    margin-left: 1.3rem;
+  }
+
+  .formLabelDoc {
+    justify-content: space-between;
+    margin-left: 3rem;
+  }
+
+  .formLabelNumber {
+    justify-content: space-between;
+    margin-left: 1.3rem;
+  }
+
+  .formContainer button {
+    margin-bottom: 1rem;
+  }
+}

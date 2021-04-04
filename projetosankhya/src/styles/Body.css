@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 1rem;
-  padding: 0.7rem 0;
+  padding: 0.7rem 2%;
 }
 
 .cardContainer {
@@ -27,9 +27,10 @@
 
 .buttonsBodyContainer button {
   background: #70C067;
-  border: none;
+  border: 1px solid #70C067;
   border-radius: 0.5rem;
   color: #212F44;
+  cursor: pointer;
   margin-top: 0.5rem;
   outline: none;
 }
