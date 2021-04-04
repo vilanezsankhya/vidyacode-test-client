@@ -30,6 +30,7 @@
   border: 1px solid #70C067;
   border-radius: 0.5rem;
   color: #212F44;
+  cursor: pointer;
   margin-top: 0.5rem;
   outline: none;
 }
